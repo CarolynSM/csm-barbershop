@@ -1,28 +1,30 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getPhotos } from "./actions.js";
+import styled from "styled-components";
 
-class Photos extends React.Component {
+import { getPhotos } from "./actions.js";
+import List from "./List.js";
+import Grid from "./List.js";
+
+class Photos extends Component {
   componentDidMount() {
     const { getPhotos } = this.props;
     getPhotos();
   }
 
   render() {
-    const { photos } = this.props.photos;
     console.log("this is them", this.props.photos);
     return (
-      <ul>
-        {this.props.photos.map(item => {
-          return (
-            <li key={item.id}>
-              <img src={item.urls.thumb} />
-              <a href={item.links.html}>{item.links.html}</a>
-            </li>
-          );
-        })}
-      </ul>
+      <div className="wrapper">
+        <header>
+          <h1>My Photos</h1>
+        </header>
+        <div className="container">
+          <List photos={this.props.photos} />
+          <Grid photos={this.props.photos} />
+        </div>
+      </div>
     );
   }
 }
@@ -40,14 +42,3 @@ const mapDispatchToProps = dispatch =>
   );
 
 export default connect(mapStateToProps, mapDispatchToProps)(Photos);
-
-// <ul>
-//   photos.map(item => ( return (
-//   <li key={item.id}>
-//     <img src={item.urls.thumb} />
-//     <a href={item.links.html}>{item.links.html}</a>
-//   </li>
-//   ); ))
-// </ul>
-
-// <ul>{this.state.photos.map(this.createPhotos)}</ul>;
