@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import { getPhotos } from "./actions.js";
 import List from "./List.js";
-import Grid from "./List.js";
+import Grid from "./Grid.js";
 
 class Photos extends Component {
   componentDidMount() {
@@ -17,9 +17,9 @@ class Photos extends Component {
     console.log("this is them", this.props.photos);
     return (
       <div className="wrapper">
-        <header>
-          <h1>My Photos</h1>
-        </header>
+        <Header>
+          <Title>My Photos</Title>
+        </Header>
         <div className="container">
           <List photos={this.props.photos} />
           <Grid photos={this.props.photos} />
@@ -42,3 +42,16 @@ const mapDispatchToProps = dispatch =>
   );
 
 export default connect(mapStateToProps, mapDispatchToProps)(Photos);
+
+const Header = styled.header`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2rem 1rem;
+`;
+
+const Title = styled.h1`
+  color: #171717;
+  font-size: 24px;
+  font-weight: 600;
+`;

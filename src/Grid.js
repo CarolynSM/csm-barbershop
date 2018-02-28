@@ -14,9 +14,9 @@ export default class Grid extends Component {
         <StyledGrid>
           {photos.map(item => {
             return (
-              <ListItem key={item.id}>
-                <Image src={item.urls.thumb} />
-              </ListItem>
+              <ImgContainer>
+                <GridImage key={item.id} src={item.urls.small} />
+              </ImgContainer>
             );
           })}
         </StyledGrid>
@@ -25,24 +25,28 @@ export default class Grid extends Component {
   }
 }
 
-const Container = styled.div`
-  display: grid;
-  grid-template-columns: [col-start] 1fr [col-left] 1fr [col-right] 1fr [col-end];
-  grid-template-rows: [row-start] 1fr [row-mid] 1fr [row-end];
-`;
+const Container = styled.div``;
 
-const StyledList = styled.ul`
-  list-style: none;
+const StyledGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
 `;
 
 const ListItem = styled.li`
   display: flex;
   flex-direction: row;
   margin: 1rem;
-  padding: 1rem 0;
+  padding: 0.5em 0;
 `;
 
-const Image = styled.img`
-  height: 30%;
-  width: 30%;
+const ImgContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const GridImage = styled.img`
+  display: block;
+  height: 90%;
+  margin: 0.5em 0;
+  width: 90%;
 `;

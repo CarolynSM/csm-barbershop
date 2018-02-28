@@ -40,21 +40,26 @@ const ListItem = styled.li`
   display: flex;
   flex-direction: row;
   margin: 1rem;
-  padding: 1rem 0;
 `;
 
 const Image = styled.img`
-  height: 30%;
-  width: 30%;
+  height: 20%;
+  width: 20%;
 `;
 
 const AnchorContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 1rem;
+  text-wrap: unrestricted;
 `;
 
 const Anchor = styled.a`
   color: #2f80ed;
+  font-size: 16px;
   font-weight: 600;
+  overflow-wrap: break-word;
+  text-align: left;
+  word-break: break-all;
+  word-wrap: break-word;
 `;
