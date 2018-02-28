@@ -7,7 +7,6 @@ export default class Grid extends Component {
   }
 
   render() {
-    console.log("list props", this.props.photos);
     const { photos } = this.props;
     return (
       <Container className="grid-container">
@@ -29,7 +28,16 @@ const Container = styled.div``;
 
 const StyledGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 2rem;
+  }
+  @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 const ListItem = styled.li`

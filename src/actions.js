@@ -10,3 +10,10 @@ export function getPhotos() {
     });
   };
 }
+
+export function navigate(view) {
+  return {
+    type: "NAVIGATE",
+    view: view
+  };
+}

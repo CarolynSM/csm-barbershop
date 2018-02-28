@@ -1,5 +1,6 @@
 const initialState = {
-  photos: []
+  photos: [],
+  view: "LIST"
 };
 
 export default function(state = initialState, action) {
@@ -9,6 +10,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         photos: data
+      };
+    case "NAVIGATE":
+      return {
+        ...state,
+        view: action.view
       };
     default:
       return state;

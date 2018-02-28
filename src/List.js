@@ -7,7 +7,6 @@ export default class List extends Component {
   }
 
   render() {
-    console.log("list props", this.props.photos);
     const { photos } = this.props;
     return (
       <Container className="list-container">
@@ -29,6 +28,8 @@ export default class List extends Component {
 }
 
 const Container = styled.div`
+  display: flex;
+  justify-content: center;
   width: 100%;
 `;
 
@@ -39,27 +40,41 @@ const StyledList = styled.ul`
 const ListItem = styled.li`
   display: flex;
   flex-direction: row;
+  padding: 0.7em 0;
   margin: 1rem;
 `;
 
 const Image = styled.img`
-  height: 20%;
-  width: 20%;
+  @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) {
+    height: 30%;
+    width: 30%;
+  }
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    height: 20%;
+    width: 20%;
+  }
 `;
 
 const AnchorContainer = styled.div`
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
-  padding: 1rem;
+  padding: 0 1rem;
   text-wrap: unrestricted;
 `;
 
 const Anchor = styled.a`
   color: #2f80ed;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 600;
+  line-height: 33px;
   overflow-wrap: break-word;
   text-align: left;
+  text-decoration: none;
   word-break: break-all;
   word-wrap: break-word;
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    font-size: 16px;
+    line-height: 22px;
+  }
 `;
