@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
 
-export default class List extends Component {
+import { showDetail } from "./actions.js";
+
+class List extends Component {
   constructor(props) {
     super(props);
   }
@@ -14,7 +17,7 @@ export default class List extends Component {
           {photos.map(item => {
             return (
               <ListItem key={item.id}>
-                <Image src={item.urls.thumb} />
+                <Image src={item.urls.thumb} onClick={() => this.props.showDetail(item.id)} />
                 <AnchorContainer>
                   <Anchor href={item.links.html}>{item.links.html}</Anchor>
                 </AnchorContainer>
@@ -26,6 +29,20 @@ export default class List extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  photos: state.photos.photos,
+  selectedPhoto: state.photos.selectedPhoto,
+  view: state.photos.view
+});
+
+const mapDispatchToProps = dispatch => ({
+  showDetail: id => {
+    dispatch(showDetail(id));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(List);
 
 const Container = styled.div`
   display: flex;

@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
 
-export default class Grid extends Component {
+import { showDetail } from "./actions.js";
+
+class Grid extends Component {
   constructor(props) {
     super(props);
   }
@@ -13,8 +16,8 @@ export default class Grid extends Component {
         <StyledGrid>
           {photos.map(item => {
             return (
-              <ImgContainer>
-                <GridImage key={item.id} src={item.urls.small} />
+              <ImgContainer key={item.id}>
+                <GridImage src={item.urls.small} onClick={() => this.props.showDetail(item.id)} />
               </ImgContainer>
             );
           })}
@@ -23,6 +26,20 @@ export default class Grid extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  photos: state.photos.photos,
+  selectedPhoto: state.photos.selectedPhoto,
+  view: state.photos.view
+});
+
+const mapDispatchToProps = dispatch => ({
+  showDetail: id => {
+    dispatch(showDetail(id));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Grid);
 
 const Container = styled.div``;
 

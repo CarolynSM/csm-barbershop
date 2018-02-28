@@ -17,3 +17,11 @@ export function navigate(view) {
     view: view
   };
 }
+
+export function showDetail(id) {
+  return {
+    type: "SHOW_DETAIL",
+    view: "DETAIL",
+    selectedPhoto: id
+  };
+}

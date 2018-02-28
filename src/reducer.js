@@ -1,5 +1,6 @@
 const initialState = {
   photos: [],
+  selectedPhoto: undefined,
   view: "LIST"
 };
 
@@ -15,6 +16,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         view: action.view
+      };
+    case "SHOW_DETAIL":
+      return {
+        ...state,
+        view: "DETAILS",
+        selectedPhoto: action.selectedPhoto
       };
     default:
       return state;
