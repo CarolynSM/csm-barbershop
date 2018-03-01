@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 import { navigate } from "../actions.js";
-import grid from "./grid-selected.png";
-import list from "./list-unselected.png";
+import grid from "./assets/grid-selected.png";
+import list from "./assets/list-unselected.png";
 
-class GridSelected extends React.Component {
+class GridSelected extends Component {
   render() {
     return (
       <MenuContainer>

@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 import styled from "styled-components";
 
 import { getPhotos, navigate, showDetail } from "./actions.js";
 import ListSelected from "./Menu/List.js";
 import GridSelected from "./Menu/Grid.js";
-import List from "./List.js";
-import Grid from "./Grid.js";
-import Detail from "./Detail.js";
+import List from "./Views/List.js";
+import Grid from "./Views/Grid.js";
+import Detail from "./Views/Detail.js";
 
 class Photos extends Component {
   componentDidMount() {
@@ -56,10 +55,10 @@ class Photos extends Component {
 
   render() {
     return (
-      <body>
+      <div>
         {this.toggleHeader()}
         <main>{this.currentView()}</main>
-      </body>
+      </div>
     );
   }
 }

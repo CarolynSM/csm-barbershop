@@ -2,13 +2,9 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
-import { showDetail } from "./actions.js";
+import { showDetail } from "../actions.js";
 
 class Grid extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { photos } = this.props;
     return (
@@ -55,13 +51,6 @@ const StyledGrid = styled.div`
   @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
     grid-template-columns: repeat(1, 1fr);
   }
-`;
-
-const ListItem = styled.li`
-  display: flex;
-  flex-direction: row;
-  margin: 1rem;
-  padding: 0.5em 0;
 `;
 
 const ImgContainer = styled.div`

@@ -5,10 +5,6 @@ import styled from "styled-components";
 import location from "./location.png";
 
 class Detail extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   getCurrentPhoto(array, id) {
     const current = array.filter(item => item.id === id);
     return current[0];
@@ -72,13 +68,13 @@ const Image = styled.img`
 
 const ProfileImageContainer = styled.div`
   display: flex;
+  padding: 3rem 3rem 2rem 3rem;
   justify-content: center;
 `;
 
 const ProfileImage = styled.img`
   border-radius: 100px;
   height: 20%;
-  padding: 3rem;
   width: 20%;
 `;
 

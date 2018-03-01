@@ -2,13 +2,9 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
-import { showDetail } from "./actions.js";
+import { showDetail } from "../actions.js";
 
 class List extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { photos } = this.props;
     return (
