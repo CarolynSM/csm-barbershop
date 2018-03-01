@@ -80,32 +80,41 @@ const TextIcon = styled.button`
 `;
 
 const HoverFocus = styled.button`
+  align-items: center;
   background-color: #33adff;
   border-radius: 2px;
   color: #fff;
+  display: flex;
   font-size: 16px;
   font-weight: 600;
   height: 40px;
+  justify-content: center;
   width: 180px;
 `;
 
 const Active = styled.button`
+  align-items: center;
   background-color: #3f67d4;
   border-radius: 2px;
   color: #fff;
+  display: flex;
   font-size: 16px;
   font-weight: 600;
   height: 40px;
+  justify-content: center;
   width: 180px;
 `;
 
 const LoadingDisabled = styled.button`
+  align-items: center;
   background-color: #8eb7ed;
   border-radius: 2px;
   color: #fff;
+  display: flex;
   font-size: 16px;
   font-weight: 600;
   height: 40px;
+  justify-content: center;
   width: 180px;
 `;
 

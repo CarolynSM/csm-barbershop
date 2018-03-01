@@ -21,10 +21,10 @@ class Detail extends Component {
     return (
       <DetailContainer>
         <ImageContainer>
-          <Image src={current.urls.small} />
+          <Image src={current.urls.regular} />
         </ImageContainer>
         <ProfileImageContainer>
-          <ProfileImage src={current.user.profile_image.medium} />
+          <ProfileImage src={current.user.profile_image.large} />
         </ProfileImageContainer>
         <Name>
           {current.user.first_name} {current.user.last_name}
@@ -71,8 +71,18 @@ const ImageContainer = styled.div`
 
 const Image = styled.img`
   height: 90%;
-  margin 0 1rem;
+  margin 5rem 1rem;
   width: 90%;
+  @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) {
+    height: 90%;
+    margin 0 1rem;
+    width: 90%;
+  }
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    height: 90%;
+    margin 0 1rem;
+    width: 90%;
+  }
 `;
 
 const ProfileImageContainer = styled.div`
@@ -82,9 +92,19 @@ const ProfileImageContainer = styled.div`
 `;
 
 const ProfileImage = styled.img`
-  border-radius: 100px;
-  height: 20%;
-  width: 20%;
+  border-radius: 150px;
+  height: 10%;
+  width: 10%;
+  @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) {
+    border-radius: 150px;
+    height: 30%;
+    width: 30%;
+  }
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    border-radius: 100px;
+    height: 20%;
+    width: 20%;
+  }
 `;
 
 const LocationContainer = styled.div`
@@ -105,16 +125,36 @@ const Name = styled.h2`
 
 const UserName = styled.p`
   color: #000;
-  font-size: 14px;
+  font-size: 24px;
   text-align: center;
+  @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) {
+    font-size: 24px;
+  }
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    font-size: 14px;
+  }
 `;
 
 const Icon = styled.img`
-  height: 20px;
-  width: 20px;
+  height: 35px;
+  width: 35px;
+  @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) {
+    height: 35px;
+    width: 35px;
+  }
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    height: 20px;
+    width: 20px;
+  }
 `;
 
 const City = styled.p`
   color: #000;
-  font-size: 12px;
+  font-size: 20px;
+  @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) {
+    font-size: 20px;
+  }
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    font-size: 12px;
+  }
 `;
