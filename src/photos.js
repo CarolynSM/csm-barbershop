@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
-import { loadPhotos, navigate, showDetail, disableButton } from "./actions.js";
+import { loadPhotos, navigate, showDetail } from "./actions.js";
 import ListSelected from "./Menu/List.js";
 import GridSelected from "./Menu/Grid.js";
 import List from "./Views/List.js";
@@ -54,18 +54,16 @@ class Photos extends Component {
     }
   }
 
-  mergeDuplicates(array) {
-    return Array.from(new Set(array));
+  buttonState() {
+    return this.props.photos.length < 15 ? "TEXT_ICON" : "DISABLED";
   }
 
   render() {
-    console.log("first", this.props.photos);
-    console.log("function", this.mergeDuplicates(this.props.photos));
     return (
       <div>
         {this.toggleHeader()}
         <main>{this.currentView()}</main>
-        <Button />
+        <Button button={this.buttonState()} />
       </div>
     );
   }
@@ -87,9 +85,6 @@ const mapDispatchToProps = dispatch => ({
   },
   showDetail: id => {
     dispatch(showDetail(id));
-  },
-  disableButton: state => {
-    dispatch(disableButton(state));
   }
 });
 

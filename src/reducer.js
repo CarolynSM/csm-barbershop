@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 const initialState = {
   photos: [],
   selectedPhoto: undefined,
@@ -14,9 +16,11 @@ export default function(state = initialState, action) {
         photos: data
       };
     case "GET_PHOTOS":
+      const duplicates = [...state.photos, ...action.payload];
+      const uniq = _.uniqBy(duplicates, "id");
       return {
         ...state,
-        photos: [...state.photos, ...action.payload]
+        photos: uniq
       };
     case "NAVIGATE":
       return {
@@ -28,11 +32,6 @@ export default function(state = initialState, action) {
         ...state,
         view: "DETAILS",
         selectedPhoto: action.selectedPhoto
-      };
-    case "DISABLE_BUTTON":
-      return {
-        ...state,
-        button: action.button
       };
     default:
       return state;

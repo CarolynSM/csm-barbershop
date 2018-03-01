@@ -48,8 +48,7 @@ class Button extends Component {
 const mapStateToProps = state => ({
   photos: state.photos.photos,
   selectedPhoto: state.photos.selectedPhoto,
-  view: state.photos.view,
-  button: state.photos.button
+  view: state.photos.view
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -67,7 +66,7 @@ const ButtonContainer = styled.div`
   padding: 1rem;
 `;
 
-const TextIcon = styled.div`
+const TextIcon = styled.button`
   align-items: center;
   background-color: #2f80ed;
   border-radius: 2px;
@@ -80,7 +79,7 @@ const TextIcon = styled.div`
   width: 180px;
 `;
 
-const HoverFocus = styled.div`
+const HoverFocus = styled.button`
   background-color: #33adff;
   border-radius: 2px;
   color: #fff;
@@ -90,7 +89,7 @@ const HoverFocus = styled.div`
   width: 180px;
 `;
 
-const Active = styled.div`
+const Active = styled.button`
   background-color: #3f67d4;
   border-radius: 2px;
   color: #fff;
@@ -100,7 +99,7 @@ const Active = styled.div`
   width: 180px;
 `;
 
-const LoadingDisabled = styled.div`
+const LoadingDisabled = styled.button`
   background-color: #8eb7ed;
   border-radius: 2px;
   color: #fff;

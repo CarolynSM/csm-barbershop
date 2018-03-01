@@ -38,10 +38,3 @@ export function showDetail(id) {
     selectedPhoto: id
   };
 }
-
-export function disableButton() {
-  return {
-    type: "DISABLE_BUTTON",
-    button: "DISABLED"
-  };
-}
