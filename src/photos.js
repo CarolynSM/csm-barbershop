@@ -20,20 +20,16 @@ class Photos extends Component {
     if (this.props.view === "LIST") {
       return <ListSelected />;
     } else if (this.props.view === "GRID") {
-      console.log("GridMenu");
       return <GridSelected />;
     } else return <ListSelected />;
   }
 
   currentView() {
     if (this.props.view === "LIST") {
-      console.log("should be the LIST view");
       return <List photos={this.props.photos} />;
     } else if (this.props.view === "GRID") {
-      console.log("should be the GRID view");
       return <Grid photos={this.props.photos} />;
     } else if (this.props.view === "DETAILS") {
-      console.log("should be the DETAIL view");
       return <Detail />;
     } else return <List photos={this.props.photos} />;
   }
@@ -90,6 +86,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Photos);
 
 const Header = styled.header`
   align-items: center;
+  cursor: default;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -107,6 +104,7 @@ const Title = styled.h1`
 `;
 
 const DetailHeader = styled.header`
+  cursor: default;
   display: flex;
   justify-content: flex-end;
   margin: 1rem;

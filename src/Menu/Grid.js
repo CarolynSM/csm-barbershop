@@ -3,14 +3,20 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 import { navigate } from "../actions.js";
+import grid from "./grid-selected.png";
+import list from "./list-unselected.png";
 
 class GridSelected extends React.Component {
   render() {
     return (
       <MenuContainer>
-        <GridSelectedButton onClick={() => this.props.navigate("GRID")}>Grid</GridSelectedButton>
+        <GridSelectedButton onClick={() => this.props.navigate("GRID")}>
+          <Icon src={grid} />
+          <p>Grid</p>
+        </GridSelectedButton>
         <ListUnselectedButton onClick={() => this.props.navigate("LIST")}>
-          List
+          <Icon src={list} />
+          <p>List</p>
         </ListUnselectedButton>
       </MenuContainer>
     );
@@ -38,36 +44,6 @@ const MenuContainer = styled.div`
   justify-content: space-around;
   height: 40px;
   width: 180px;
-`;
-
-const ListSelectedButton = styled.div`
-  align-items: center;
-  background-color: #2f80ed;
-  border-radius: 2px;
-  color: #fff;
-  display: flex;
-  font-size: 16px;
-  font-weight: 600;
-  height: 100%;
-  justify-content: center;
-  line: 22px;
-  text-align: center;
-  width: 50%;
-`;
-
-const GridUnselectedButton = styled.div`
-  align-items: center;
-  background-color: #fff;
-  border-radius: 2px;
-  color: #2f80ed;
-  display: flex;
-  font-size: 16px;
-  font-weight: 600;
-  height: 100%;
-  justify-content: center;
-  line: 22px;
-  text-align: center;
-  width: 50%;
 `;
 
 const GridSelectedButton = styled.div`
@@ -98,4 +74,11 @@ const ListUnselectedButton = styled.div`
   line: 22px;
   text-align: center;
   width: 50%;
+`;
+
+const Icon = styled.img`
+  height: 30%;
+  padding: 0.4em;
+  padding-left: 0;
+  width: 15%;
 `;
