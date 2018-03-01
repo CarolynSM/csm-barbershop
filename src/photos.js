@@ -2,17 +2,18 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
-import { getPhotos, navigate, showDetail } from "./actions.js";
+import { loadPhotos, navigate, showDetail, disableButton } from "./actions.js";
 import ListSelected from "./Menu/List.js";
 import GridSelected from "./Menu/Grid.js";
 import List from "./Views/List.js";
 import Grid from "./Views/Grid.js";
 import Detail from "./Views/Detail.js";
+import Button from "./Buttons.js";
 
 class Photos extends Component {
   componentDidMount() {
-    const { getPhotos } = this.props;
-    getPhotos();
+    const { loadPhotos } = this.props;
+    loadPhotos();
   }
 
   currentMenu() {
@@ -53,11 +54,18 @@ class Photos extends Component {
     }
   }
 
+  mergeDuplicates(array) {
+    return Array.from(new Set(array));
+  }
+
   render() {
+    console.log("first", this.props.photos);
+    console.log("function", this.mergeDuplicates(this.props.photos));
     return (
       <div>
         {this.toggleHeader()}
         <main>{this.currentView()}</main>
+        <Button />
       </div>
     );
   }
@@ -66,18 +74,22 @@ class Photos extends Component {
 const mapStateToProps = state => ({
   photos: state.photos.photos,
   selectedPhoto: state.photos.selectedPhoto,
-  view: state.photos.view
+  view: state.photos.view,
+  button: state.photos.button
 });
 
 const mapDispatchToProps = dispatch => ({
+  loadPhotos: () => {
+    dispatch(loadPhotos());
+  },
   navigate: view => {
     dispatch(navigate(view));
   },
-  getPhotos: () => {
-    dispatch(getPhotos());
-  },
   showDetail: id => {
     dispatch(showDetail(id));
+  },
+  disableButton: state => {
+    dispatch(disableButton(state));
   }
 });
 

@@ -18,7 +18,6 @@ class Detail extends Component {
 
   render() {
     const current = this.getCurrentPhoto(this.props.photos, this.props.selectedPhoto);
-    console.log("current", current);
     return (
       <DetailContainer>
         <ImageContainer>
