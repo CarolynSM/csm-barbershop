@@ -49,9 +49,19 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps)(Detail);
 
 const DetailContainer = styled.div`
+  animation-name: fadeInOut;
+  animation-duration: 1.5s;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `;
 
 const ImageContainer = styled.div`
