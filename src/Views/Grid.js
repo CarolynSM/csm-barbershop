@@ -37,7 +37,18 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(mapStateToProps, mapDispatchToProps)(Grid);
 
-const Container = styled.div``;
+const Container = styled.div`
+  animation-name: fadeInOut;
+  animation-duration: 1s;
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+`;
 
 const StyledGrid = styled.div`
   display: grid;

@@ -49,7 +49,7 @@ export default connect(mapStateToProps)(Detail);
 
 const DetailContainer = styled.div`
   animation-name: fadeInOut;
-  animation-duration: 1.5s;
+  animation-duration: 1s;
   display: flex;
   flex-direction: column;
   justify-content: center;

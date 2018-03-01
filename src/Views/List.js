@@ -41,8 +41,18 @@ const mapDispatchToProps = dispatch => ({
 export default connect(mapStateToProps, mapDispatchToProps)(List);
 
 const Container = styled.div`
+  animation-name: fadeInOut;
+  animation-duration: 1s;
   display: flex;
   justify-content: center;
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
   width: 100%;
 `;
 
