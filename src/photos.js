@@ -4,6 +4,8 @@ import { bindActionCreators } from "redux";
 import styled from "styled-components";
 
 import { getPhotos, navigate, showDetail } from "./actions.js";
+import ListSelected from "./Menu/List.js";
+import GridSelected from "./Menu/Grid.js";
 import List from "./List.js";
 import Grid from "./Grid.js";
 import Detail from "./Detail.js";
@@ -16,26 +18,11 @@ class Photos extends Component {
 
   currentMenu() {
     if (this.props.view === "LIST") {
-      return (
-        <MenuContainer>
-          <GridUnselected onClick={() => this.props.navigate("GRID")}>Grid</GridUnselected>
-          <ListSelected onClick={() => this.props.navigate("LIST")}>List</ListSelected>
-        </MenuContainer>
-      );
+      return <ListSelected />;
     } else if (this.props.view === "GRID") {
-      return (
-        <MenuContainer>
-          <GridSelected onClick={() => this.props.navigate("GRID")}>Grid</GridSelected>
-          <ListUnselected onClick={() => this.props.navigate("LIST")}>List</ListUnselected>
-        </MenuContainer>
-      );
-    } else
-      return (
-        <MenuContainer>
-          <GridUnselected onClick={() => this.props.navigate("GRID")}>Grid</GridUnselected>
-          <ListSelected onClick={() => this.props.navigate("LIST")}>List</ListSelected>
-        </MenuContainer>
-      );
+      console.log("GridMenu");
+      return <GridSelected />;
+    } else return <ListSelected />;
   }
 
   currentView() {
@@ -60,17 +47,23 @@ class Photos extends Component {
         </Header>
       );
     } else {
-      return <DetailHeader />;
+      return (
+        <DetailHeader>
+          <CloseContainer onClick={() => this.props.navigate("LIST")}>
+            <LineOne />
+            <LineTwo />
+          </CloseContainer>
+        </DetailHeader>
+      );
     }
   }
 
   render() {
-    console.log("this is them", this.props.photos);
     return (
-      <div className="wrapper">
+      <body>
         {this.toggleHeader()}
-        <div className="container">{this.currentView()}</div>
-      </div>
+        <main>{this.currentView()}</main>
+      </body>
     );
   }
 }
@@ -113,73 +106,28 @@ const Title = styled.h1`
   }
 `;
 
-const MenuContainer = styled.div`
-  align-items: center;
+const DetailHeader = styled.header`
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  height: 40px;
-  width: 180px;
+  justify-content: flex-end;
+  margin: 1rem;
 `;
 
-const ListSelected = styled.div`
-  align-items: center;
+const CloseContainer = styled.div`
+  padding-right: 1rem;
+  padding-top: 1rem;
+  width: 25px;
+`;
+
+const LineOne = styled.div`
   background-color: #2f80ed;
-  border-radius: 2px;
-  color: #fff;
-  display: flex;
-  font-size: 16px;
-  font-weight: 600;
-  height: 100%;
-  justify-content: center;
-  line: 22px;
-  text-align: center;
-  width: 50%;
+  height: 1px;
+  transform: rotate(-45deg);
+  width: 3rem;
 `;
 
-const GridUnselected = styled.div`
-  align-items: center;
-  background-color: #fff;
-  border-radius: 2px;
-  color: #2f80ed;
-  display: flex;
-  font-size: 16px;
-  font-weight: 600;
-  height: 100%;
-  justify-content: center;
-  line: 22px;
-  text-align: center;
-  width: 50%;
-`;
-
-const GridSelected = styled.div`
-  align-items: center;
+const LineTwo = styled.div`
   background-color: #2f80ed;
-  border-radius: 2px;
-  color: #fff;
-  display: flex;
-  font-size: 16px;
-  font-weight: 600;
-  height: 100%;
-  justify-content: center;
-  line: 22px;
-  text-align: center;
-  width: 50%;
+  height: 1px;
+  transform: rotate(45deg);
+  width: 3rem;
 `;
-
-const ListUnselected = styled.div`
-  align-items: center;
-  background-color: #fff;
-  border-radius: 2px;
-  color: #2f80ed;
-  display: flex;
-  font-size: 16px;
-  font-weight: 600;
-  height: 100%;
-  justify-content: center;
-  line: 22px;
-  text-align: center;
-  width: 50%;
-`;
-
-const DetailHeader = styled.header``;

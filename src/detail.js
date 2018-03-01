@@ -25,8 +25,12 @@ class Detail extends Component {
     console.log("current", current);
     return (
       <DetailContainer>
-        <Image src={current.urls.small} />
-        <ProfileImage src={current.user.profile_image.small} />
+        <ImageContainer>
+          <Image src={current.urls.small} />
+        </ImageContainer>
+        <ProfileImageContainer>
+          <ProfileImage src={current.user.profile_image.medium} />
+        </ProfileImageContainer>
         <Name>
           {current.user.first_name} {current.user.last_name}
         </Name>
@@ -49,24 +53,63 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps)(Detail);
 
 const DetailContainer = styled.div`
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
-const Image = styled.img``;
+const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+`;
+
+const Image = styled.img`
+  height: 90%;
+  margin 0 1rem;
+  width: 90%;
+`;
+
+const ProfileImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 const ProfileImage = styled.img`
-  border-radius: 50px;
+  border-radius: 100px;
+  height: 20%;
+  padding: 3rem;
+  width: 20%;
 `;
 
-const LocationContainer = styled.div``;
+const LocationContainer = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 4rem;
+`;
 
-const Name = styled.h2``;
+const Name = styled.h2`
+  color: #000;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 0.5em;
+  text-align: center;
+`;
 
-const UserName = styled.p``;
+const UserName = styled.p`
+  color: #000;
+  font-size: 14px;
+  text-align: center;
+`;
 
 const Icon = styled.img`
   height: 20px;
   width: 20px;
 `;
 
-const City = styled.p``;
+const City = styled.p`
+  color: #000;
+  font-size: 12px;
+`;
