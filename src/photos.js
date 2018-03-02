@@ -96,8 +96,15 @@ const Header = styled.header`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 2rem 3rem;
   padding-bottom: 1rem;
+  @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) {
+    padding: 2rem;
+    padding-bottom: 1rem;
+  }
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    padding: 1rem;
+  }
 `;
 
 const Title = styled.h1`
