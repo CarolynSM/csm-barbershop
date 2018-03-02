@@ -29,7 +29,7 @@ class Detail extends Component {
         <Name>
           {current.user.first_name} {current.user.last_name}
         </Name>
-        <UserName>@{current.user.username}</UserName>
+        <UserName className="username">@{current.user.username}</UserName>
         <LocationContainer>
           {this.setLocationIcon(current.user.location)}
           <City>{current.user.location}</City>

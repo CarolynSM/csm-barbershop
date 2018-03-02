@@ -45,7 +45,7 @@ class Photos extends Component {
     } else {
       return (
         <DetailHeader>
-          <CloseContainer onClick={() => this.props.navigate("LIST")}>
+          <CloseContainer className="detail-close" onClick={() => this.props.navigate("LIST")}>
             <LineOne />
             <LineTwo />
           </CloseContainer>

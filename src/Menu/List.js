@@ -10,11 +10,11 @@ class ListSelected extends Component {
   render() {
     return (
       <MenuContainer>
-        <GridUnselectedButton onClick={() => this.props.navigate("GRID")}>
+        <GridUnselectedButton className="grid-button" onClick={() => this.props.navigate("GRID")}>
           <Icon src={grid} />
           <p>Grid</p>
         </GridUnselectedButton>
-        <ListSelectedButton onClick={() => this.props.navigate("LIST")}>
+        <ListSelectedButton className="list-button" onClick={() => this.props.navigate("LIST")}>
           <Icon src={list} />
           <p>List</p>
         </ListSelectedButton>
@@ -46,9 +46,10 @@ const MenuContainer = styled.div`
   width: 180px;
 `;
 
-const ListSelectedButton = styled.div`
+const ListSelectedButton = styled.button`
   align-items: center;
   background-color: #2f80ed;
+  border: none;
   border-radius: 2px;
   color: #fff;
   display: flex;
@@ -61,9 +62,10 @@ const ListSelectedButton = styled.div`
   width: 50%;
 `;
 
-const GridUnselectedButton = styled.div`
+const GridUnselectedButton = styled.button`
   align-items: center;
   background-color: #fff;
+  border: none;
   border-radius: 2px;
   color: #2f80ed;
   display: flex;

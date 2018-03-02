@@ -9,7 +9,7 @@ class List extends Component {
     const { photos } = this.props;
     return (
       <Container className="list-container">
-        <StyledList>
+        <StyledList className="list-view">
           {photos.map(item => {
             return (
               <ListItem key={item.id}>
