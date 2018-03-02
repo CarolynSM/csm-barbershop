@@ -48,12 +48,12 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps)(Detail);
 
 const DetailContainer = styled.div`
-  animation-name: fadeInOut;
+  animation-name: fadeIn;
   animation-duration: 1s;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  @keyframes fadeInOut {
+  @keyframes fadeIn {
     0% {
       opacity: 0;
     }
@@ -71,7 +71,7 @@ const ImageContainer = styled.div`
 
 const Image = styled.img`
   height: 90%;
-  margin 5rem 1rem;
+  margin 1rem 5rem;
   width: 90%;
   @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) {
     height: 90%;
